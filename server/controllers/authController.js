@@ -91,10 +91,57 @@ const getProfile = (req, res) => {
     }
 }
 
+const addToWishList = async (req, res) => {
+    const {userId, product} = req.body;
+    try {
+        const user = await User.findById(userId);
+        if(user){
+            // check if product is already in the wishlist
+            const alreadyInWishlist = user.wishlist.some(item => item.product_id === product.product_id);
+            if(alreadyInWishlist){
+                return res.status(400).json({message: 'Product is already in your wishlist'})
+            }
+
+            // if not, add product to wishlist
+            await User.updateOne(
+                {_id: userId},
+                {$addToSet: {wishlist: product}}
+            );
+            res.status(200).json({message: 'Added to wishlist'});
+        } else{
+            res.statur(404).json({error: 'User not found'})
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({error: 'Failed to add to wishlist'});
+    }
+};
+
+// get wishlist endpoint
+const getWishlist = async (req, res) => {
+    const {userId} = req.params;
+    try {
+        const user = await User.findById(userId);
+        if(user) {
+            res.status(200).json(user.wishlist);     
+        }
+        else{
+            res.status(404).json({error: 'User not found'})
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({error: 'Failed to get wishlist'})
+    }
+};
+
+
+
 module.exports = {
     test,
     registerUser,
     loginUser,
     getProfile,
-    logoutUser
+    logoutUser,
+    addToWishList,
+    getWishlist
 }

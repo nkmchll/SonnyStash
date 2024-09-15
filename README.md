@@ -36,6 +36,7 @@ Sonny Stash is a web application that allows users to explore and manage their c
 
 ### Search
 <img width="1440" alt="Screenshot 2024-09-15 at 1 01 58 PM" src="https://github.com/user-attachments/assets/0eaa9709-c158-47cd-a48e-a5e1f6e6d2a3">
+### Search: Choosing a collection and series
 <img width="1440" alt="Screenshot 2024-09-15 at 1 03 41 PM" src="https://github.com/user-attachments/assets/c90447b4-fb86-44bb-9353-ca9ba2191a42">
 
 ### Wishlist

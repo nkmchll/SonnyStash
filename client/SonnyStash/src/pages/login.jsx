@@ -43,6 +43,18 @@ const Login = () => {
       height="100vh"
       
     >
+      <Button
+        variant="contained"
+        onClick={() => navigate('/')}
+        sx={{
+          position: 'absolute',
+          top: '1.5rem',
+          left: '1.5rem',
+          zIndex: 1000
+        }}
+      >
+        Back
+      </Button>
       <Box marginTop={-15}>
         <Typography variant="h3" mb={1} fontWeight={"bold"}>
           Login

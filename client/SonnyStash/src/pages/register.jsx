@@ -47,6 +47,18 @@ const Register = () => {
         boxSizing: 'border-box',
       }}
     >
+      <Button
+        variant="contained"
+        onClick={() => navigate('/')}
+        sx={{
+          position: 'absolute',
+          top: '1.5rem',
+          left: '1.5rem',
+          zIndex: 1000
+        }}
+      >
+        Back
+      </Button>
       <Box 
         marginTop={-15}
         component="form"
@@ -61,6 +73,7 @@ const Register = () => {
           borderRadius: '8px',
         }}
       >
+        
         <Typography variant="h3" mb={1} fontWeight={"bold"}>
           Register
         </Typography>
